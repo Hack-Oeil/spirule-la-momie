@@ -1,0 +1,37 @@
+version: '1.0'
+services:
+  webserver:
+    build: momie_http/
+    ports:
+      - "80:80"
+    container_name: ho-webserver
+  botserver:
+    build: momie_bot/
+    restart: always
+    container_name: ho-botserver
+    healthcheck:
+      test: ["CMD", "wscat", "-c", "ws://localhost:8282"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    command: npm start
+  sqlserver:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: superSqlPassw0rD
+      MYSQL_DATABASE: momie
+      MYSQL_USER: momie_user
+      MYSQL_PASSWORD: simpleMomieSqlPass
+    volumes:
+      - ./momie_sql/init.sql:/docker-entrypoint-initdb.d
+    container_name: ho-sqlserver
+  ftpserver:
+    image: delfer/alpine-ftp-server
+    environment:
+      - USERS=klupin|55f56074b2035fbe|/home/klupin|1000
+      - ADDRESS=127.0.0.1
+    container_name: ho-ftpserver
+    volumes:
+      - ./momie_ftp/black_market_catalog.zip:/home/klupin/black_market_catalog.zip
