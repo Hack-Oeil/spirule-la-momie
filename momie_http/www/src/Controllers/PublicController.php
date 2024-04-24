@@ -25,6 +25,8 @@ class PublicController extends AbstractController
             {
                 throw new \Exception('Le champs ne peut etre vide');
             }
+            // On permet l'url via IP, ou tunnel ngrok ou autre
+            $_POST['url'] = str_replace(['https', $_SERVER["HTTP_HOST"]],['http','localhost'], $_POST['url']);
             if( !str_starts_with($_POST['url'], 'http://localhost')  )
             {
                 throw new \Exception('Désolé, Bobby ne s\'occupe que de notre site.');
@@ -46,13 +48,13 @@ class PublicController extends AbstractController
                     ]
                 ],
             ]));
+            FlashBag::set( 'Merci. Bobby va vérifier le bug signalé !', 'success');
         }
         catch(\Exception $e)
         {
             FlashBag::set( $e->getMessage(), 'error');
         }
 
-        FlashBag::set( 'Merci. Bobby va vérifier le bug signalé !', 'success');
         $this->redirectTo('/report-bug');
     }
 
