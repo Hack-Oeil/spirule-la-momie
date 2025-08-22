@@ -1,16 +1,13 @@
-version: '1.0'
 services:
   webserver:
-    build: momie_http/
+    build: ./.docker/momie_http/
     ports:
-      - "80:80"
-    container_name: ho-webserver
+      - ${PORT}:80
   botserver:
-    build: momie_bot/
+    build: ./.docker/momie_bot/
     restart: always
-    container_name: ho-botserver
     healthcheck:
-      test: ["CMD", "wscat", "-c", "ws://localhost:8282"]
+      test: [ "CMD", "wscat", "-c", "ws://localhost:8282" ]
       interval: 5s
       timeout: 3s
       retries: 10
@@ -25,13 +22,11 @@ services:
       MYSQL_USER: momie_user
       MYSQL_PASSWORD: simpleMomieSqlPass
     volumes:
-      - ./momie_sql/init.sql:/docker-entrypoint-initdb.d
-    container_name: ho-sqlserver
+      - ./.docker/momie_sql/init.sql:/docker-entrypoint-initdb.d
   ftpserver:
     image: delfer/alpine-ftp-server
     environment:
       - USERS=klupin|55f56074b2035fbe|/home/klupin|1000
       - ADDRESS=127.0.0.1
-    container_name: ho-ftpserver
     volumes:
-      - ./momie_ftp/black_market_catalog.zip:/home/klupin/black_market_catalog.zip
+      - ./.docker/momie_ftp/black_market_catalog.zip:/home/klupin/black_market_catalog.zip

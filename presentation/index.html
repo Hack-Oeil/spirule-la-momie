@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fr">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Namari Color CSS -->
+    <link rel="stylesheet" href="./assets/css/namari-color.css">
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Challenge #57</h3>
+                            <h2 class="section-title">La momie</h2>
+                            <p class="section-subtitle">
+                                Bonjour détective !
+
+                                Kevin, le descendant d'Arsène Lupin, aurait encore frappé. Cette fois-ci, il aurait volé
+                                une ancienne tablette égyptienne au musée du Louvre. Un témoin affirme avoir entendu le
+                                suspect dire qu'il stockait les photos de ses butins sur les serveurs de MountainCloud
+                                Hosting en attendant que les enquêtes se calment pour les vendre ensuite au marché noir.
+                                Avec un peu de chance, les photos nous permettraient de localiser le lieu où il
+                                entrepose les objets volés. Accédez à son compte MountainCloud pour le découvrir.
+                            </p>
+                            <h4>Aperçu:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="aperçu">
+                            <h4>Format du flag</h4>
+                            <p>
+                                Le flag est une addresse postale. Il aura la forme suivante:<br />
+
+                                XX_rue_xxxxxxxx_xxxxxx_ccccc_vvvvv-vvvvv<br />
+
+                                <u>Exemples:</u>
+                                <br />
+                                32_rue_emile_zola_93200_saint-denis
+                                <br />
+                                29_rue_louis_blance_83990_saint-tropez
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Apprentissage</h3>
+                            <h2 class="section-title">Documentations et Vidéos</h2>
+                            <p class="section-subtitle">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Aide</h3>
+                            <h2 class="section-title">Conseils et indices</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1176173464411979806">Fil sur
+                                    le Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Remonter en tête de site"></a>
+    </div>
+</body>
+
+</html>

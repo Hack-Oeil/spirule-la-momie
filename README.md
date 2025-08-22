@@ -21,10 +21,8 @@ XX_rue_xxxxxxxx_xxxxxx_ccccc_vvvvv-vvvvv
 
 29_rue_louis_blance_83990_saint-tropez
 
-## APERÇU
-
-![infos/capture.jpg](infos/capture.jpg)
-
+## Aperçu
+![presentation/assets/images/capture.jpg](presentation/assets/images/capture.jpg)
 -----------
 
 ## Installation manuel
