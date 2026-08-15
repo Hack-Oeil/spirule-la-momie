@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head lang="ko">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Namari Color CSS -->
+    <link rel="stylesheet" href="./assets/css/namari-color.css">
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>챌린지 #57</h3>
+                            <h2 class="section-title">미라</h2>
+                            <p class="section-subtitle">
+                                안녕하세요 탐정님!
+
+                                아르센 팡의 후손인 케빈이 다시 사건을 일으킨 것으로 보입니다. 이번에는 루브르 박물관에서 고대 이집트 태블릿을 훔쳤다고 합니다. 한 목격자에 따르면, 피의자가 수사가 가라앉을 때까지 훔친 물건의 사진을 MountainCloud Hosting 서버에 저장해 두었다가 암시장에 팔 계획이라고 말하는 것을 들었다고 합니다.
+                                운이 좋다면 사진을 통해 훔친 물건을 보관해 둔 장소를 찾아낼 수 있을 것입니다. 그의 MountainCloud 계정에 접속하여 확인해 보세요.
+                            </p>
+                            <h4>미리보기:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="미리보기">
+                            <h4>플래그 형식</h4>
+                            <p>
+                                플래그는 우편 주소입니다. 다음과 같은 형식입니다:<br />
+
+                                XX_rue_xxxxxxxx_xxxxxx_ccccc_vvvvv-vvvvv<br />
+
+                                <u>예시:</u>
+                                <br />
+                                32_rue_emile_zola_93200_saint-denis
+                                <br />
+                                29_rue_louis_blance_83990_saint-tropez
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>학습</h3>
+                            <h2 class="section-title">문서 및 동영상</h2>
+                            <p class="section-subtitle">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>도움말</h3>
+                            <h2 class="section-title">조언 및 힌트</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord
+                                    스레드</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="맨 위로 이동"></a>
+    </div>
+</body>
+
+</html>

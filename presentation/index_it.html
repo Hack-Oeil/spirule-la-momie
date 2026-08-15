@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head lang="it">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Namari Color CSS -->
+    <link rel="stylesheet" href="./assets/css/namari-color.css">
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Sfida #57</h3>
+                            <h2 class="section-title">La mummia</h2>
+                            <p class="section-subtitle">
+                                Ciao detective!
+
+                                Kevin, il discendente di Arsène Lupin, avrebbe colpito ancora. Questa volta avrebbe rubato
+                                un'antica tavoletta egizia dal Museo del Louvre. Un testimonio afferma di aver sentito il
+                                sospetto dire che conservava le foto delle sue refurtive sui server di MountainCloud
+                                Hosting in attesa che le indagini si calmino per poi venderle sul mercato nero.
+                                Con un po' di fortuna, le foto ci permetteranno di localizzare il luogo in cui
+                                conserva gli oggetti rubati. Accedi al suo account MountainCloud per scoprirlo.
+                            </p>
+                            <h4>Anteprima:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="anteprima">
+                            <h4>Formato del flag</h4>
+                            <p>
+                                Il flag è un indirizzo postale. Avrà la seguente forma:<br />
+
+                                XX_rue_xxxxxxxx_xxxxxx_ccccc_vvvvv-vvvvv<br />
+
+                                <u>Esempi:</u>
+                                <br />
+                                32_rue_emile_zola_93200_saint-denis
+                                <br />
+                                29_rue_louis_blance_83990_saint-tropez
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Apprendimento</h3>
+                            <h2 class="section-title">Documentazione e Video</h2>
+                            <p class="section-subtitle">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Aiuto</h3>
+                            <h2 class="section-title">Consigli e indizi</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discussione
+                                    su Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Torna in alto"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head lang="vi">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Namari Color CSS -->
+    <link rel="stylesheet" href="./assets/css/namari-color.css">
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Thử thách #57</h3>
+                            <h2 class="section-title">Xác ướp</h2>
+                            <p class="section-subtitle">
+                                Xin chào thám tử!
+
+                                Kevin, hậu duệ của Arsène Lupin, lại ra tay một lần nữa. Lần này, hắn được cho là đã đánh cắp
+                                một tấm bảng Ai Cập cổ đại từ bảo tàng Louvre. Một nhân chứng khẳng định đã nghe thấy
+                                nghi phạm nói rằng hắn đang lưu trữ ảnh các chiến lợi phẩm của mình trên máy chủ MountainCloud
+                                Hosting trong khi chờ các cuộc điều tra lắng xuống để sau đó bán chúng trên thị trường đen.
+                                Nếu may mắn, những bức ảnh sẽ cho phép chúng ta xác định vị trí nơi hắn
+                                cất giữ các đồ vật bị đánh cắp. Truy cập tài khoản MountainCloud của hắn để khám phá.
+                            </p>
+                            <h4>Xem trước:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="xem trước">
+                            <h4>Định dạng flag</h4>
+                            <p>
+                                Flag là một địa chỉ bưu điện. Nó sẽ có dạng như sau:<br />
+
+                                XX_rue_xxxxxxxx_xxxxxx_ccccc_vvvvv-vvvvv<br />
+
+                                <u>Ví dụ:</u>
+                                <br />
+                                32_rue_emile_zola_93200_saint-denis
+                                <br />
+                                29_rue_louis_blance_83990_saint-tropez
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Học tập</h3>
+                            <h2 class="section-title">Tài liệu và Video</h2>
+                            <p class="section-subtitle">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Trợ giúp</h3>
+                            <h2 class="section-title">Lời khuyên và gợi ý</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Luồng
+                                    trên Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Cuộn lên đầu trang"></a>
+    </div>
+</body>
+
+</html>
